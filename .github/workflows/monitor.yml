@@ -2,8 +2,9 @@ name: Monitor EJURR
 
 on:
   schedule:
-    # A cada 3 horas (horario UTC). Boa Vista = UTC-4.
-    - cron: "0 */3 * * *"
+    # A cada 30 minutos. Os minutos 7 e 37 evitam o pico da virada da hora,
+    # quando a fila do GitHub Actions costuma atrasar as execucoes.
+    - cron: "7,37 * * * *"
   workflow_dispatch:
 
 permissions:
